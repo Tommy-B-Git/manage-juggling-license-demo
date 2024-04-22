@@ -1,0 +1,21 @@
+{# code below to set to /application (Task list) depending if user exists #}
+
+{% if data.user %}
+    {% set serviceUrl = '/applications' %}
+{% else %}
+    {% set serviceUrl = '/account/sign-in' %}
+{% endif %}
+
+
+{{ govukHeader({
+    homepageUrl: "#",
+    serviceName: serviceName,
+    serviceUrl: serviceUrl,
+    navigation: [
+    {
+        href: '/account/sign-out',
+        text: 'Sign out'    
+    }] if data.user 
+}) }}
+
+{# put condition above to show nav based on signed in or not #}
