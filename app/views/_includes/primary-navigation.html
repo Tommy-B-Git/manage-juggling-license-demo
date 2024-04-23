@@ -1,0 +1,13 @@
+
+
+{{ xGovukPrimaryNavigation({
+    visuallyHiddenTitle: "Navigation",
+    items: [{
+      text: "Application",
+      href: "/applications",
+      current: primaryNavId == 'applications'
+    }, {
+      text: "Activity",
+      href: "/activity"
+    }]
+  }) if data.user }}
