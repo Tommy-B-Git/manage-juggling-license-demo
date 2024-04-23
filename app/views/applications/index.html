@@ -10,7 +10,45 @@
 
 
     <h1 class="govuk-heading-l">{{ pageName }}</h1>
+    {{data.applications | log}}
+
+    <div class="app-list">
+    {% for application in data.applications %}
     
+      <div class="app-list__item">
+        <h2 class="govuk-heading-m">
+          <a href="/applications/{{application.id}}">
+            {{application.personalDetails.firstName}}
+            {{application.personalDetails.lastName}}
+          </a>
+        <h2>
+
+        {{ govukSummaryList({
+          classes: "govuk-summary-list--no-border",
+          rows: [
+            {
+              key: {
+                text: "Email address"
+              },
+              value: {
+                text: application.personalDetails.emailAddress
+              }
+            },
+            {
+              key: {
+                text: "Sent date"
+              },
+              value: {
+                text: "19 November 2023"
+              }
+            }
+          ]
+        }) }}
+
+      </div>
+    {% endfor %}
+    </div>
+  </div>
 
 
   </div>
