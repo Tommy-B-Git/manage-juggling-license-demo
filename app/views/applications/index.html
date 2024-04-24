@@ -25,6 +25,11 @@
           </a>
         <h2>
 
+        {{ govukTag({
+          text: application.status,
+          classes: application.status | statusColour
+        }) }}
+
         {{ govukSummaryList({
           classes: "govuk-summary-list--no-border",
           rows: [

@@ -8,3 +8,13 @@ const addFilter = govukPrototypeKit.views.addFilter
 
 // Add your filters here
 
+addFilter('statusColour', status => {
+    switch(status){
+        case 'Received':
+            return 'govuk-tag--yellow'
+        case 'Rejected':
+            return 'govuk-tag--red'
+        case 'Approved':
+            return 'govuk-tag--green'
+    }   
+})
